@@ -63,12 +63,27 @@ class PracticeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(profileImageView)
-        view.addSubview(profileTitleLabel)
-        view.addSubview(profileSubLabel)
-        view.addSubview(photoBackView)
+        setUI()
+        
+    }
+    
+    func setUI() {
+        
+        for i in [profileImageView, profileTitleLabel, profileSubLabel, photoBackView] {
+            view.addSubview(i)
+        }
+        
+        [photoImageView, titleLabel].forEach { view.addSubview($0) }
+        
         photoBackView.addSubview(photoImageView)
         photoBackView.addSubview(titleLabel)
+        
+        setConstraints()
+        
+        view.backgroundColor = .white
+    }
+    
+    func setConstraints() {
         
         profileImageView.snp.makeConstraints { make in
             make.top.equalTo(50)
@@ -103,10 +118,7 @@ class PracticeViewController: UIViewController {
             make.horizontalEdges.bottom.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.2)
         }
-
-        view.backgroundColor = .white
         
-
     }
 
 }
