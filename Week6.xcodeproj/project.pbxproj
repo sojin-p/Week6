@@ -19,6 +19,7 @@
 		2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4D62A94792C000DB64F /* LocationViewController.swift */; };
 		2356E4DA2A94ADD9000DB64F /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4D92A94ADD9000DB64F /* PracticeViewController.swift */; };
 		2356E4DC2A94CCB0000DB64F /* FirstExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */; };
+		2356E4DE2A94DB32000DB64F /* SecondExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		2356E4D62A94792C000DB64F /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		2356E4D92A94ADD9000DB64F /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstExampleViewController.swift; sourceTree = "<group>"; };
+		2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				2356E4D92A94ADD9000DB64F /* PracticeViewController.swift */,
 				2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */,
+				2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				2356E4D52A945CBC000DB64F /* TextViewController.swift in Sources */,
 				2356E4D32A94467A000DB64F /* SnapViewController.swift in Sources */,
 				2356E4BD2A930A01000DB64F /* ViewController.swift in Sources */,
+				2356E4DE2A94DB32000DB64F /* SecondExampleViewController.swift in Sources */,
 				2356E4DA2A94ADD9000DB64F /* PracticeViewController.swift in Sources */,
 				2356E4DC2A94CCB0000DB64F /* FirstExampleViewController.swift in Sources */,
 				2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */,
