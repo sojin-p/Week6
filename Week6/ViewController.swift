@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         
     }
     @objc func signButtonClicked() {
-        let vc = PracticeViewController() //스토리보드 없을 때만 가능, 값 전달할 때 상수쓰지만
+        let vc = FirstExampleViewController() //스토리보드 없을 때만 가능, 값 전달할 때 상수쓰지만
         present(vc, animated: true) //그런거없으면 vc안에 바로 인스턴스 생성해도 됨!
     }
     
