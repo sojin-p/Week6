@@ -16,13 +16,33 @@ class LocationViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     let mapView = MKMapView()
+    let namButton = UIButton()
+    let samButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(mapView)
         mapView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(20)
+            make.edges.equalToSuperview().inset(40)
+        }
+        
+        view.addSubview(namButton)
+        namButton.backgroundColor = .blue
+        namButton.addTarget(self, action: #selector(namButtonClicked), for: .touchUpInside)
+        namButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.size.equalTo(50)
+            make.leading.equalToSuperview().offset(100)
+        }
+        
+        view.addSubview(samButton)
+        samButton.backgroundColor = .cyan
+        samButton.addTarget(self, action: #selector(samButtonClicked), for: .touchUpInside)
+        samButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.size.equalTo(50)
+            make.trailing.equalToSuperview().offset(-100)
         }
         
         //2.뷰디드로드에 불러오기
@@ -35,7 +55,41 @@ class LocationViewController: UIViewController {
         locationManager.delegate = self
         
         //네비달았을 때 안켜지는 경우가 있음. 그래서 두번 호출되더라도 뷰디드로드에서 호출하기
-//        checkDeviceLocationAutorization()
+        checkDeviceLocationAutorization()
+        
+        setAnnotation(type: 0)
+        
+    }
+    
+    @objc func namButtonClicked() {
+        print("남영돈 클릭")
+        //어노테이션 remove 후 내가 원하는 남영돈만 set
+        
+        setAnnotation(type: 1) // 1
+        
+    }
+    
+    @objc func samButtonClicked() {
+        print("샘샘샘 클릭")
+    }
+    
+    func setAnnotation(type: Int) { //열거형으로 나중에
+//        37.542743, 126.973762 //남영돈
+//        37.531569, 126.972165 //쌤쌤쌤
+        
+        let annotation1 = MKPointAnnotation()
+        annotation1.coordinate = CLLocationCoordinate2D(latitude: 37.542743, longitude: 126.973762)
+        
+        let annotation2 = MKPointAnnotation()
+        annotation2.coordinate = CLLocationCoordinate2D(latitude: 37.531569, longitude: 126.972165)
+        
+        
+        if type == 0 { //viewDidLoad상태 = 두개 다 있어야함
+            mapView.addAnnotations([annotation1, annotation2])
+        } else if type == 1 { //1번 버튼 눌렀을 때
+            mapView.removeAnnotations(mapView.annotations)
+            mapView.addAnnotations([annotation1])
+        }
         
     }
     
