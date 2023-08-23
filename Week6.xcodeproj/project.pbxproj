@@ -21,6 +21,7 @@
 		2356E4DC2A94CCB0000DB64F /* FirstExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */; };
 		2356E4DE2A94DB32000DB64F /* SecondExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */; };
 		2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4E02A960872000DB64F /* TheaterViewController.swift */; };
+		2356E4E32A9625F1000DB64F /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4E22A9625F1000DB64F /* Theater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstExampleViewController.swift; sourceTree = "<group>"; };
 		2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondExampleViewController.swift; sourceTree = "<group>"; };
 		2356E4E02A960872000DB64F /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
+		2356E4E22A9625F1000DB64F /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				2356E4E02A960872000DB64F /* TheaterViewController.swift */,
+				2356E4E22A9625F1000DB64F /* Theater.swift */,
 			);
 			path = Theater_Assignment;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */,
 				2356E4B92A930A01000DB64F /* AppDelegate.swift in Sources */,
 				2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */,
+				2356E4E32A9625F1000DB64F /* Theater.swift in Sources */,
 				2356E4BB2A930A01000DB64F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

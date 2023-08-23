@@ -22,18 +22,15 @@ class TheaterViewController: UIViewController {
         setUI()
         
         checkDeviceLocationAutorization()
-        
-        setRegionAndAunotation()
 
     }
     
-    func setRegionAndAunotation() {
-        let center = CLLocationCoordinate2D(latitude: 37.549599, longitude: 126.965379)
+    func setRegionAndAunotation(title:String, center: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
         mapView.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
-        annotation.title = "현 위치"
+        annotation.title = title
         annotation.coordinate = center
         mapView.addAnnotation(annotation)
     }
@@ -69,20 +66,30 @@ class TheaterViewController: UIViewController {
     func checkCurrentLocationAutorization(status: CLAuthorizationStatus) {
         
         switch status {
+            
         case .notDetermined:
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
+            
         case .restricted:
             print("사용할 권한도 변경도 없다. 자녀보호?")
+            
         case .denied:
             print("거부됨")
+            
+            let center = CLLocationCoordinate2D(latitude: 37.517748, longitude: 126.886374) //새싹
+            setRegionAndAunotation(title: "새싹 영등포캠퍼스", center: center)
+            
             showRequestLocationServiceAlert()
+            
         case .authorizedAlways:
             print("항상 허용")
             locationManager.startUpdatingLocation()
+            
         case .authorizedWhenInUse:
             print("앱을 사용하는 동안")
             locationManager.startUpdatingLocation()
+            
         default:
             showRequestLocationServiceAlert()
         }
@@ -109,7 +116,10 @@ class TheaterViewController: UIViewController {
 extension TheaterViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        if let coordinate = locations.last?.coordinate {
+            print(coordinate)
+            setRegionAndAunotation(title: "현 위치", center: coordinate)
+        }
         locationManager.stopUpdatingLocation()
     }
     
