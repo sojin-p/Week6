@@ -7,25 +7,74 @@
 
 import UIKit
 import CoreLocation //1. 위치 임포트
+import MapKit
+import SnapKit
 
 class LocationViewController: UIViewController {
     
     //2. 위치 매니저 인스턴스 생성: 위치에 대한 대부분(권한, 성공상태 등)을 담당함
     let locationManager = CLLocationManager()
+    
+    let mapView = MKMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(mapView)
+        mapView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(20)
+        }
+        
+        //2.뷰디드로드에 불러오기
+        let center = CLLocationCoordinate2D(latitude: 37.547021, longitude: 126.970706)
+        setRegionAndAunotation(center: center)
         
         view.backgroundColor = .white
         
         //3. 위치 프로토콜 연결
         locationManager.delegate = self
         
-//        //info.plist <<< 얼럿
-//        locationManager.requestWhenInUseAuthorization()
-        
         //네비달았을 때 안켜지는 경우가 있음. 그래서 두번 호출되더라도 뷰디드로드에서 호출하기
 //        checkDeviceLocationAutorization()
+        
+    }
+    
+    //핀 꼽는 그걸 어노테이션이라고 함!
+    func setRegionAndAunotation(center: CLLocationCoordinate2D) { //1.매개변수
+        
+        //지도 중심 기반으로 보여질 범위 설정
+//        let center = CLLocationCoordinate2D(latitude: 37.549599, longitude: 126.965379) //3.없애기
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 400, longitudinalMeters: 400) //100m범위
+        mapView.setRegion(region, animated: true) //맵뷰에 넣기
+        
+        //지도에 어노테이션 추가(여러개면 s붙은 메서드 쓰면 됨)
+        let annotation = MKPointAnnotation() //애플제공 기본 핀 모양
+        annotation.title = "뭐지이거?"
+        annotation.coordinate = center //어디에 보여줄 지. 위에 만든 중심으로 넣어보기..
+        mapView.addAnnotation(annotation)
+        
+    }
+    
+    //설정으로 이동하는 알림 - 거부할 때
+    func showLocationSettingAlert() {
+        
+        let alert = UIAlertController(title: "위치 정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요", preferredStyle: .alert)
+        
+        let goSetting = UIAlertAction(title: "설정으로 이동", style: .default) { _ in
+            // 설정에서 직접적으로 앱 설정 화면에 들어간 적이 없다면
+            // 한번도 설정 앱에 들어가지 않았거나, 막 다운받은 앱이라서
+            // 설정 페이지로 넘어갈지, 설정 상세 페이지 우리가 결정 X
+            if let appSetting = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSetting) //열기
+            }
+            
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(goSetting)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
         
     }
     
@@ -46,7 +95,9 @@ class LocationViewController: UIViewController {
                 }
                 
                 print(authorization)
-                self.checkCurrentLocationAuthorization(status: authorization)
+                DispatchQueue.main.async {
+                    self.checkCurrentLocationAuthorization(status: authorization)
+                }
                 
             } else {
                 print("위치 서비스가 꺼져있어 위치 권한 요청을 못합니다 - 얼럿으로 대응")
@@ -66,8 +117,9 @@ class LocationViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization() //얼럿 띄워주는 역할, info.plist 설정과 맞아야 함!
         case .restricted:
             print("restricted")
-        case .denied:
+        case .denied: //거부
             print("denied")
+            showLocationSettingAlert()
         case .authorizedAlways:
             print("authorizedAlways")
         case .authorizedWhenInUse: //허용되어있다면
@@ -93,9 +145,11 @@ extension LocationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        print("---",locations)
         
-        //위경도 값 가져오기
+        //위,경도 값 가져오기
         if let coordinate = locations.last?.coordinate {
             print(coordinate)
+            setRegionAndAunotation(center: coordinate) //4.
+            //날씨 API호출 한다거나..
         }
         
         //여러번 찍히니까 멈추라고 하기! 안 할 경우 배터리나 발열 등의 문제가.. 런데이는 끝낼 때 호출하겠징..?
@@ -124,5 +178,22 @@ extension LocationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
     }
+    
+}
+
+//맵뷰에서 잘 쓰는 메소드 소개
+extension LocationViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) { //위치 바꿀때
+        print(#function)
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) { //선택했을 때
+        print(#function)
+    }
+    
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//
+//    }
     
 }
