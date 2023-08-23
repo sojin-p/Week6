@@ -98,7 +98,7 @@ class LocationViewController: UIViewController {
         
         //지도 중심 기반으로 보여질 범위 설정
 //        let center = CLLocationCoordinate2D(latitude: 37.549599, longitude: 126.965379) //(3)없애기
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 400, longitudinalMeters: 400) //100m범위
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 400, longitudinalMeters: 400) //400m범위
         mapView.setRegion(region, animated: true) //맵뷰에 넣기
         
         //지도에 어노테이션 추가(여러개면 s붙은 메서드 쓰면 됨)

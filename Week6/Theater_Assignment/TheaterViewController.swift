@@ -8,22 +8,37 @@
 import UIKit
 import CoreLocation
 import SnapKit
+import MapKit
 
 class TheaterViewController: UIViewController {
     
     let locationManager = CLLocationManager()
+    
+    let mapView = MKMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
+        setUI()
         
         checkDeviceLocationAutorization()
         
-        view.backgroundColor = .white
+        setRegionAndAunotation()
 
     }
     
+    func setRegionAndAunotation() {
+        let center = CLLocationCoordinate2D(latitude: 37.549599, longitude: 126.965379)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.title = "현 위치"
+        annotation.coordinate = center
+        mapView.addAnnotation(annotation)
+    }
+    
+    //MARK: - LocationAutorization
     func checkDeviceLocationAutorization() {
         
         DispatchQueue.global().async {
@@ -68,8 +83,6 @@ class TheaterViewController: UIViewController {
         case .authorizedWhenInUse:
             print("앱을 사용하는 동안")
             locationManager.startUpdatingLocation()
-        case .authorized:
-            print("권한 부여되었지만, MacOS용인듯")
         default:
             showRequestLocationServiceAlert()
         }
@@ -92,6 +105,7 @@ class TheaterViewController: UIViewController {
     
 }
 
+//MARK: - CLLocationManagerDelegate
 extension TheaterViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -107,4 +121,19 @@ extension TheaterViewController: CLLocationManagerDelegate {
         print("사용자 권한이 변경됨")
     }
     
+}
+
+//MARK: - SetUI
+extension TheaterViewController {
+    
+    func setUI() {
+        
+        locationManager.delegate = self
+        view.backgroundColor = .white
+        
+        view.addSubview(mapView)
+        mapView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
 }

@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "메인화면"
+        
         //2. 사용자 눈에 보여주기
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -77,7 +79,8 @@ class ViewController: UIViewController {
 //        vc.modalTransitionStyle = .coverVertical
 //        vc.modalPresentationStyle = .overFullScreen
 //        let nav = UINavigationController(rootViewController: vc)
-        present(vc, animated: true) //그런거없으면 여기 VC란에 바로 인스턴스 생성해도 됨!
+        navigationController?.pushViewController(vc, animated: true)
+//        present(vc, animated: true) //그런거없으면 여기 VC란에 바로 인스턴스 생성해도 됨!
     }
     
     func setLayoutAnchor() {
