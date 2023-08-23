@@ -20,6 +20,7 @@
 		2356E4DA2A94ADD9000DB64F /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4D92A94ADD9000DB64F /* PracticeViewController.swift */; };
 		2356E4DC2A94CCB0000DB64F /* FirstExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */; };
 		2356E4DE2A94DB32000DB64F /* SecondExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */; };
+		2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4E02A960872000DB64F /* TheaterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		2356E4D92A94ADD9000DB64F /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstExampleViewController.swift; sourceTree = "<group>"; };
 		2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondExampleViewController.swift; sourceTree = "<group>"; };
+		2356E4E02A960872000DB64F /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,16 +72,17 @@
 		2356E4B72A930A01000DB64F /* Week6 */ = {
 			isa = PBXGroup;
 			children = (
-				2356E4D82A94AD56000DB64F /* Assignment */,
+				2356E4DF2A9607B9000DB64F /* Theater_Assignment */,
+				2356E4D82A94AD56000DB64F /* CodeBaseUI_Assignment */,
 				2356E4D12A944643000DB64F /* Test */,
 				2356E4B82A930A01000DB64F /* AppDelegate.swift */,
 				2356E4BA2A930A01000DB64F /* SceneDelegate.swift */,
 				2356E4BC2A930A01000DB64F /* ViewController.swift */,
+				2356E4D62A94792C000DB64F /* LocationViewController.swift */,
 				2356E4BE2A930A01000DB64F /* Main.storyboard */,
 				2356E4C12A930A03000DB64F /* Assets.xcassets */,
 				2356E4C32A930A03000DB64F /* LaunchScreen.storyboard */,
 				2356E4C62A930A03000DB64F /* Info.plist */,
-				2356E4D62A94792C000DB64F /* LocationViewController.swift */,
 			);
 			path = Week6;
 			sourceTree = "<group>";
@@ -93,14 +96,22 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
-		2356E4D82A94AD56000DB64F /* Assignment */ = {
+		2356E4D82A94AD56000DB64F /* CodeBaseUI_Assignment */ = {
 			isa = PBXGroup;
 			children = (
 				2356E4D92A94ADD9000DB64F /* PracticeViewController.swift */,
 				2356E4DB2A94CCB0000DB64F /* FirstExampleViewController.swift */,
 				2356E4DD2A94DB32000DB64F /* SecondExampleViewController.swift */,
 			);
-			path = Assignment;
+			path = CodeBaseUI_Assignment;
+			sourceTree = "<group>";
+		};
+		2356E4DF2A9607B9000DB64F /* Theater_Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				2356E4E02A960872000DB64F /* TheaterViewController.swift */,
+			);
+			path = Theater_Assignment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 				2356E4DC2A94CCB0000DB64F /* FirstExampleViewController.swift in Sources */,
 				2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */,
 				2356E4B92A930A01000DB64F /* AppDelegate.swift in Sources */,
+				2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */,
 				2356E4BB2A930A01000DB64F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

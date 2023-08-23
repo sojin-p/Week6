@@ -45,7 +45,7 @@ class LocationViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-100)
         }
         
-        //2.뷰디드로드에 불러오기
+        //(2)뷰디드로드에 불러오기
         let center = CLLocationCoordinate2D(latitude: 37.547021, longitude: 126.970706)
         setRegionAndAunotation(center: center)
         
@@ -94,10 +94,10 @@ class LocationViewController: UIViewController {
     }
     
     //핀 꼽는 그걸 어노테이션이라고 함!
-    func setRegionAndAunotation(center: CLLocationCoordinate2D) { //1.매개변수
+    func setRegionAndAunotation(center: CLLocationCoordinate2D) { //(1)매개변수
         
         //지도 중심 기반으로 보여질 범위 설정
-//        let center = CLLocationCoordinate2D(latitude: 37.549599, longitude: 126.965379) //3.없애기
+//        let center = CLLocationCoordinate2D(latitude: 37.549599, longitude: 126.965379) //(3)없애기
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 400, longitudinalMeters: 400) //100m범위
         mapView.setRegion(region, animated: true) //맵뷰에 넣기
         
@@ -202,7 +202,7 @@ extension LocationViewController: CLLocationManagerDelegate {
         //위,경도 값 가져오기
         if let coordinate = locations.last?.coordinate {
             print(coordinate)
-            setRegionAndAunotation(center: coordinate) //4.
+            setRegionAndAunotation(center: coordinate) //(4)
             //날씨 API호출 한다거나..
         }
         

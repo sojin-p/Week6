@@ -73,11 +73,11 @@ class ViewController: UIViewController {
         
     }
     @objc func signButtonClicked() {
-        let vc = LocationViewController() //스토리보드 없을 때만 가능, 값 전달할 때 상수쓰지만
+        let vc = TheaterViewController() //스토리보드 없을 때만 가능, 값 전달할 때 상수쓰지만
 //        vc.modalTransitionStyle = .coverVertical
 //        vc.modalPresentationStyle = .overFullScreen
-        let nav = UINavigationController(rootViewController: vc)
-        present(nav, animated: true) //그런거없으면 여기 VC란에 바로 인스턴스 생성해도 됨!
+//        let nav = UINavigationController(rootViewController: vc)
+        present(vc, animated: true) //그런거없으면 여기 VC란에 바로 인스턴스 생성해도 됨!
     }
     
     func setLayoutAnchor() {
