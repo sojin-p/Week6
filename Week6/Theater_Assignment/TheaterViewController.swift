@@ -25,7 +25,34 @@ class TheaterViewController: UIViewController {
 
     }
     
-    func setRegionAndAunotation(title:String, center: CLLocationCoordinate2D) {
+    @objc func filterButtonClicked() {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let maga = UIAlertAction(title: "메가박스", style: .default) { action in
+            print("메가박스 클릭")
+        }
+        let lotte = UIAlertAction(title: "롯데시네마", style: .default) { action in
+            print("롯데시네마 클릭")
+        }
+        let cgv = UIAlertAction(title: "CGV", style: .default) { action in
+            print("CGV 클릭")
+        }
+        let all = UIAlertAction(title: "전체보기", style: .default) { action in
+            print("전체보기 클릭")
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(maga)
+        alert.addAction(lotte)
+        alert.addAction(cgv)
+        alert.addAction(all)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
+    
+    //MARK: - Annotation
+    func setRegionAndAnnotation(title:String, center: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
         mapView.setRegion(region, animated: true)
         
@@ -78,7 +105,7 @@ class TheaterViewController: UIViewController {
             print("거부됨")
             
             let center = CLLocationCoordinate2D(latitude: 37.517748, longitude: 126.886374) //새싹
-            setRegionAndAunotation(title: "새싹 영등포캠퍼스", center: center)
+            setRegionAndAnnotation(title: "새싹 영등포캠퍼스", center: center)
             
             showRequestLocationServiceAlert()
             
@@ -118,7 +145,7 @@ extension TheaterViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
             print(coordinate)
-            setRegionAndAunotation(title: "현 위치", center: coordinate)
+            setRegionAndAnnotation(title: "현 위치", center: coordinate)
         }
         locationManager.stopUpdatingLocation()
     }
@@ -138,6 +165,8 @@ extension TheaterViewController {
     
     func setUI() {
         
+        setRightBarButton()
+        
         locationManager.delegate = self
         view.backgroundColor = .white
         
@@ -145,5 +174,9 @@ extension TheaterViewController {
         mapView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    func setRightBarButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonClicked))
     }
 }
