@@ -22,23 +22,25 @@ class TheaterViewController: UIViewController {
         setUI()
         
         checkDeviceLocationAutorization()
-        setAnnotation()
+        
+        setAnnotation(type: .all)
+        
     }
     
     @objc func filterButtonClicked() {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let maga = UIAlertAction(title: "메가박스", style: .default) { action in
-            print("메가박스 클릭")
+            self.setAnnotation(type: .mega)
         }
         let lotte = UIAlertAction(title: "롯데시네마", style: .default) { action in
-            print("롯데시네마 클릭")
+            self.setAnnotation(type: .lotte)
         }
         let cgv = UIAlertAction(title: "CGV", style: .default) { action in
-            print("CGV 클릭")
+            self.setAnnotation(type: .cgv)
         }
         let all = UIAlertAction(title: "전체보기", style: .default) { action in
-            print("전체보기 클릭")
+            self.setAnnotation(type: .all)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         
@@ -62,16 +64,40 @@ class TheaterViewController: UIViewController {
         mapView.addAnnotation(annotation)
     }
     
-    func setAnnotation() {
+    func setAnnotation(type: TheaterList.TheaterType) {
         
-        for i in TheaterList.mapAnnotations {
-            let annotation = MKPointAnnotation()
+        switch type {
+        case .all:
             
-            annotation.coordinate = CLLocationCoordinate2D(latitude: i.latitude, longitude: i.longitude)
+            for i in TheaterList.mapAnnotations {
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: i.latitude, longitude: i.longitude)
+                
+                mapView.addAnnotations([annotation])
+            }
             
-            mapView.addAnnotations([annotation])
+        case .mega:
+            mapView.removeAnnotations(mapView.annotations)
+            filterAnnotation(count: 4)
+            
+        case .lotte:
+            mapView.removeAnnotations(mapView.annotations)
+            filterAnnotation(count: 5)
+            
+        case .cgv:
+            mapView.removeAnnotations(mapView.annotations)
+            filterAnnotation(count: 3)
         }
         
+    }
+    
+    func filterAnnotation(count: Int) {
+        TheaterList.mapAnnotations.filter { $0.type.count == count }.map {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
+            mapView.addAnnotations([annotation])
+        }
     }
     
     //MARK: - LocationAutorization
@@ -145,7 +171,7 @@ class TheaterViewController: UIViewController {
       let cancel = UIAlertAction(title: "취소", style: .default)
       requestLocationServiceAlert.addAction(cancel)
       requestLocationServiceAlert.addAction(goSetting)
-      
+
       present(requestLocationServiceAlert, animated: true, completion: nil)
     }
     

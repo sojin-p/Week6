@@ -29,4 +29,8 @@ struct TheaterList {
         Theater(type: "CGV", location: "CGV 영등포", latitude: 37.52666023337906, longitude: 126.9258351013706),
         Theater(type: "CGV", location: "CGV 용산 아이파크몰", latitude: 37.53149302830903, longitude: 126.9654030486416)
     ]
+    
+    enum TheaterType {
+        case all, mega, lotte, cgv
+    }
 }
