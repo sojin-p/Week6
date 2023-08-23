@@ -22,7 +22,7 @@ class TheaterViewController: UIViewController {
         setUI()
         
         checkDeviceLocationAutorization()
-
+        setAnnotation()
     }
     
     @objc func filterButtonClicked() {
@@ -60,6 +60,18 @@ class TheaterViewController: UIViewController {
         annotation.title = title
         annotation.coordinate = center
         mapView.addAnnotation(annotation)
+    }
+    
+    func setAnnotation() {
+        
+        for i in TheaterList.mapAnnotations {
+            let annotation = MKPointAnnotation()
+            
+            annotation.coordinate = CLLocationCoordinate2D(latitude: i.latitude, longitude: i.longitude)
+            
+            mapView.addAnnotations([annotation])
+        }
+        
     }
     
     //MARK: - LocationAutorization
