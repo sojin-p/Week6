@@ -28,6 +28,9 @@
 		2356E4F12A972A11000DB64F /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F02A972A11000DB64F /* CustomTableViewController.swift */; };
 		2356E4F42A975F45000DB64F /* NetflixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F32A975F45000DB64F /* NetflixViewController.swift */; };
 		2356E4F72A97623B000DB64F /* GrayBackgroundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */; };
+		2356E4F92A976EB8000DB64F /* NetflixMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F82A976EB8000DB64F /* NetflixMainViewController.swift */; };
+		2356E4FB2A976FA1000DB64F /* WhiteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4FA2A976FA1000DB64F /* WhiteLabel.swift */; };
+		2356E4FD2A977486000DB64F /* ColorRadiusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4FC2A977486000DB64F /* ColorRadiusImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		2356E4F02A972A11000DB64F /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		2356E4F32A975F45000DB64F /* NetflixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixViewController.swift; sourceTree = "<group>"; };
 		2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayBackgroundTextField.swift; sourceTree = "<group>"; };
+		2356E4F82A976EB8000DB64F /* NetflixMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixMainViewController.swift; sourceTree = "<group>"; };
+		2356E4FA2A976FA1000DB64F /* WhiteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteLabel.swift; sourceTree = "<group>"; };
+		2356E4FC2A977486000DB64F /* ColorRadiusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRadiusImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 			children = (
 				2356E4F32A975F45000DB64F /* NetflixViewController.swift */,
 				2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */,
+				2356E4F82A976EB8000DB64F /* NetflixMainViewController.swift */,
+				2356E4FC2A977486000DB64F /* ColorRadiusImageView.swift */,
+				2356E4FA2A976FA1000DB64F /* WhiteLabel.swift */,
 			);
 			path = Netflix_Assignment;
 			sourceTree = "<group>";
@@ -239,6 +248,7 @@
 				2356E4ED2A971CE0000DB64F /* CustomViewController.swift in Sources */,
 				2356E4D32A94467A000DB64F /* SnapViewController.swift in Sources */,
 				2356E4EF2A971E99000DB64F /* BlackRadiusTextField.swift in Sources */,
+				2356E4FB2A976FA1000DB64F /* WhiteLabel.swift in Sources */,
 				2356E4BD2A930A01000DB64F /* ViewController.swift in Sources */,
 				2356E4DE2A94DB32000DB64F /* SecondExampleViewController.swift in Sources */,
 				2356E4DA2A94ADD9000DB64F /* PracticeViewController.swift in Sources */,
@@ -247,6 +257,8 @@
 				2356E4F42A975F45000DB64F /* NetflixViewController.swift in Sources */,
 				2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */,
 				2356E4EA2A96F117000DB64F /* Extension+UIViewController.swift in Sources */,
+				2356E4FD2A977486000DB64F /* ColorRadiusImageView.swift in Sources */,
+				2356E4F92A976EB8000DB64F /* NetflixMainViewController.swift in Sources */,
 				2356E4B92A930A01000DB64F /* AppDelegate.swift in Sources */,
 				2356E4F12A972A11000DB64F /* CustomTableViewController.swift in Sources */,
 				2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */,
