@@ -23,6 +23,8 @@
 		2356E4E32A9625F1000DB64F /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4E22A9625F1000DB64F /* Theater.swift */; };
 		2356E4E82A96F0EC000DB64F /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4E72A96F0EC000DB64F /* GenericViewController.swift */; };
 		2356E4EA2A96F117000DB64F /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4E92A96F117000DB64F /* Extension+UIViewController.swift */; };
+		2356E4ED2A971CE0000DB64F /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4EC2A971CE0000DB64F /* CustomViewController.swift */; };
+		2356E4EF2A971E99000DB64F /* BlackRadiusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4EE2A971E99000DB64F /* BlackRadiusTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		2356E4E22A9625F1000DB64F /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		2356E4E72A96F0EC000DB64F /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		2356E4E92A96F117000DB64F /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		2356E4EC2A971CE0000DB64F /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		2356E4EE2A971E99000DB64F /* BlackRadiusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackRadiusTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		2356E4B72A930A01000DB64F /* Week6 */ = {
 			isa = PBXGroup;
 			children = (
+				2356E4EB2A971CAC000DB64F /* CustomView */,
 				2356E4E62A96F0D0000DB64F /* Generic */,
 				2356E4DF2A9607B9000DB64F /* Theater_Assignment */,
 				2356E4D82A94AD56000DB64F /* CodeBaseUI_Assignment */,
@@ -126,6 +131,15 @@
 				2356E4E92A96F117000DB64F /* Extension+UIViewController.swift */,
 			);
 			path = Generic;
+			sourceTree = "<group>";
+		};
+		2356E4EB2A971CAC000DB64F /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				2356E4EC2A971CE0000DB64F /* CustomViewController.swift */,
+				2356E4EE2A971E99000DB64F /* BlackRadiusTextField.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2356E4D52A945CBC000DB64F /* TextViewController.swift in Sources */,
+				2356E4ED2A971CE0000DB64F /* CustomViewController.swift in Sources */,
 				2356E4D32A94467A000DB64F /* SnapViewController.swift in Sources */,
+				2356E4EF2A971E99000DB64F /* BlackRadiusTextField.swift in Sources */,
 				2356E4BD2A930A01000DB64F /* ViewController.swift in Sources */,
 				2356E4DE2A94DB32000DB64F /* SecondExampleViewController.swift in Sources */,
 				2356E4DA2A94ADD9000DB64F /* PracticeViewController.swift in Sources */,
