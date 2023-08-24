@@ -26,6 +26,8 @@
 		2356E4ED2A971CE0000DB64F /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4EC2A971CE0000DB64F /* CustomViewController.swift */; };
 		2356E4EF2A971E99000DB64F /* BlackRadiusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4EE2A971E99000DB64F /* BlackRadiusTextField.swift */; };
 		2356E4F12A972A11000DB64F /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F02A972A11000DB64F /* CustomTableViewController.swift */; };
+		2356E4F42A975F45000DB64F /* NetflixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F32A975F45000DB64F /* NetflixViewController.swift */; };
+		2356E4F72A97623B000DB64F /* GrayBackgroundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		2356E4EC2A971CE0000DB64F /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		2356E4EE2A971E99000DB64F /* BlackRadiusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackRadiusTextField.swift; sourceTree = "<group>"; };
 		2356E4F02A972A11000DB64F /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
+		2356E4F32A975F45000DB64F /* NetflixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixViewController.swift; sourceTree = "<group>"; };
+		2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayBackgroundTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		2356E4B72A930A01000DB64F /* Week6 */ = {
 			isa = PBXGroup;
 			children = (
+				2356E4F52A9761FC000DB64F /* Netflix_Assignment */,
 				2356E4EB2A971CAC000DB64F /* CustomView */,
 				2356E4E62A96F0D0000DB64F /* Generic */,
 				2356E4DF2A9607B9000DB64F /* Theater_Assignment */,
@@ -143,6 +148,15 @@
 				2356E4F02A972A11000DB64F /* CustomTableViewController.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		2356E4F52A9761FC000DB64F /* Netflix_Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				2356E4F32A975F45000DB64F /* NetflixViewController.swift */,
+				2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */,
+			);
+			path = Netflix_Assignment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,12 +244,14 @@
 				2356E4DA2A94ADD9000DB64F /* PracticeViewController.swift in Sources */,
 				2356E4DC2A94CCB0000DB64F /* FirstExampleViewController.swift in Sources */,
 				2356E4E82A96F0EC000DB64F /* GenericViewController.swift in Sources */,
+				2356E4F42A975F45000DB64F /* NetflixViewController.swift in Sources */,
 				2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */,
 				2356E4EA2A96F117000DB64F /* Extension+UIViewController.swift in Sources */,
 				2356E4B92A930A01000DB64F /* AppDelegate.swift in Sources */,
 				2356E4F12A972A11000DB64F /* CustomTableViewController.swift in Sources */,
 				2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */,
 				2356E4E32A9625F1000DB64F /* Theater.swift in Sources */,
+				2356E4F72A97623B000DB64F /* GrayBackgroundTextField.swift in Sources */,
 				2356E4BB2A930A01000DB64F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
