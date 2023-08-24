@@ -18,6 +18,8 @@ class LocationViewController: UIViewController {
     let mapView = MKMapView()
     let namButton = UIButton()
     let samButton = UIButton()
+    
+    let num = Int.random(in: 1...100)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,9 @@ class LocationViewController: UIViewController {
         
         setAnnotation(type: 1) // 1
         
+        let num2 = Int.random(in: 1...100) //scope: 범위가 있다. 이 함수안에서만!
+        print(num, num2) //
+        
     }
     
     @objc func samButtonClicked() {
@@ -87,7 +92,8 @@ class LocationViewController: UIViewController {
         if type == 0 { //viewDidLoad상태 = 두개 다 있어야함
             mapView.addAnnotations([annotation1, annotation2])
         } else if type == 1 { //1번 버튼 눌렀을 때
-            mapView.removeAnnotations(mapView.annotations)
+//            mapView.removeAnnotation(annotation2) //동작 X 왜? 위 annotation2랑 이거랑은 다른 친구임...범위..스코프...
+            mapView.removeAnnotations(mapView.annotations) //동작 O
             mapView.addAnnotations([annotation1])
         }
         
