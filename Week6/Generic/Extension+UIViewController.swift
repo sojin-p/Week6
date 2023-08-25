@@ -34,8 +34,6 @@ extension UIViewController {
         let sb = UIStoryboard(name: storyboard, bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: String(describing: viewController)) as? T else { return }
         
-        present(vc, animated: true)
-        
         switch style {
         case .present:
             present(vc, animated: true)
