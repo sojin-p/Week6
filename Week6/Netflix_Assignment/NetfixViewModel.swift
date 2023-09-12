@@ -13,4 +13,13 @@ class NetfixViewModel {
     var password = Observable("")
     var nickname = Observable("")
     
+    var isValid = Observable(false)
+    
+    func checkValidation() {
+        if email.value.count >= 6 && password.value.count >= 4 && nickname.value.count >= 2 {
+            isValid.value = true
+        } else {
+            isValid.value = false
+        }
+    }
 }

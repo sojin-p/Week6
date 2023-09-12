@@ -76,7 +76,6 @@ class NetflixView: UIView {
         let view = UIButton()
         view.backgroundColor = .white
         view.layer.cornerRadius = 7
-        view.setTitleColor(UIColor.black, for: .normal)
         view.setTitle("회원가입", for: .normal)
         return view
     }()
@@ -89,34 +88,6 @@ class NetflixView: UIView {
     }()
     
     var viewModel = NetfixViewModel()
-    
-    enum LoginTextField {
-        case email
-        case password
-        case nickname
-        case location
-        case recommendation
-        
-        var placeHolder: String {
-            switch self {
-            case .email: return "이메일 또는 전화번호"
-            case .password: return "비밀번호"
-            case .nickname: return "닉네임"
-            case .location: return "위치"
-            case .recommendation: return "추천 코드"
-            }
-        }
-        
-        var tag: Int {
-            switch self {
-            case .email: return 0
-            case .password: return 1
-            case .nickname: return 2
-            case .location: return 3
-            case .recommendation: return 4
-            }
-        }
-    }
     
     @objc func textFieldChanged(_ sender: UITextField) {
         
@@ -138,11 +109,23 @@ class NetflixView: UIView {
         default: print("디폴트")
         }
         
+        viewModel.checkValidation()
+        
     }
     
     func configure() {
         
         backgroundColor = .black
+        
+        viewModel.isValid.bind { bool in
+            self.signUpButton.isEnabled = bool
+            self.signUpButton.backgroundColor = bool ? .red : .lightGray
+            if self.viewModel.isValid.value {
+                self.signUpButton.setTitleColor(.white, for: .normal)
+            } else {
+                self.signUpButton.setTitleColor(.darkGray, for: .normal)
+            }
+        }
         
         let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel]
         list.forEach {

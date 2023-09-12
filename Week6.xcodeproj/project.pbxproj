@@ -37,6 +37,7 @@
 		236E6BB92AB077F2008A0973 /* NetfixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BB82AB077F2008A0973 /* NetfixViewModel.swift */; };
 		236E6BBB2AB07812008A0973 /* NetflixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BBA2AB07812008A0973 /* NetflixView.swift */; };
 		236E6BBF2AB07CA7008A0973 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BBE2AB07CA7008A0973 /* Observable.swift */; };
+		236E6BC12AB08624008A0973 /* LoginTextFeild+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BC02AB08624008A0973 /* LoginTextFeild+Enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		236E6BB82AB077F2008A0973 /* NetfixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetfixViewModel.swift; sourceTree = "<group>"; };
 		236E6BBA2AB07812008A0973 /* NetflixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixView.swift; sourceTree = "<group>"; };
 		236E6BBE2AB07CA7008A0973 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		236E6BC02AB08624008A0973 /* LoginTextFeild+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginTextFeild+Enum.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				2356E4F62A97623B000DB64F /* GrayBackgroundTextField.swift */,
 				2356E4FC2A977486000DB64F /* ColorRadiusImageView.swift */,
 				2356E4FA2A976FA1000DB64F /* WhiteLabel.swift */,
+				236E6BC02AB08624008A0973 /* LoginTextFeild+Enum.swift */,
 			);
 			path = Netflix_Assignment;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				2356E4F12A972A11000DB64F /* CustomTableViewController.swift in Sources */,
 				236E6BBB2AB07812008A0973 /* NetflixView.swift in Sources */,
 				2356E5062A984B58000DB64F /* OnboardingViewController.swift in Sources */,
+				236E6BC12AB08624008A0973 /* LoginTextFeild+Enum.swift in Sources */,
 				2356E4E12A960872000DB64F /* TheaterViewController.swift in Sources */,
 				2356E4E32A9625F1000DB64F /* Theater.swift in Sources */,
 				2356E4F72A97623B000DB64F /* GrayBackgroundTextField.swift in Sources */,
