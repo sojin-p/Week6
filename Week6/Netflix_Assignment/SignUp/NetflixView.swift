@@ -88,6 +88,21 @@ class NetflixView: UIView {
     }()
     
     var viewModel = NetfixViewModel()
+
+    @objc func signUpButtonClicked() {
+        print("로그인버튼 클릭")
+        viewModel.signIn {
+            
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let vc = NetflixMainViewController()
+            
+            sceneDelegate?.window?.rootViewController = vc
+            sceneDelegate?.window?.makeKeyAndVisible()
+        }
+        
+    }
     
     @objc func textFieldChanged(_ sender: UITextField) {
         
@@ -96,15 +111,12 @@ class NetflixView: UIView {
         switch sender.tag {
         case LoginTextField.email.tag:
             viewModel.email.value = text
-            print("이메일", text)
             
         case LoginTextField.password.tag:
             viewModel.password.value = text
-            print("비번", text)
             
         case LoginTextField.nickname.tag:
             viewModel.nickname.value = text
-            print("닉네임", text)
             
         default: print("디폴트")
         }
@@ -133,6 +145,7 @@ class NetflixView: UIView {
         
         [emailTextField, passwordTextField, nicknameTextField].forEach { $0.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) }
         
+        signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
     }
     
     func setConstraints() {

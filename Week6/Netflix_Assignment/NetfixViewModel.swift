@@ -22,4 +22,12 @@ class NetfixViewModel {
             isValid.value = false
         }
     }
+    
+    func signIn(completion: @escaping () -> Void) {
+        
+        UserDefaults.standard.set(true, forKey: "isLaunched")
+        
+        completion()
+    }
+    
 }

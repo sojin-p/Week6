@@ -18,10 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = NetflixViewController()
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
         
+        UserDefaults.standard.set(false, forKey: "isLaunched")
+        
+        let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
+        
+        if isLaunched == false {
+            let vc = NetflixViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
+        } else {
+            let vc = NetflixMainViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
+        }
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -14,6 +14,10 @@ class NetflixViewController: UIViewController {
     override func loadView() {
         self.view = mainView
     }
+    
+    deinit {
+        print("로그인화면 사라짐")
+    }
 
     //MARK: - viewDidLoad
     override func viewDidLoad() {

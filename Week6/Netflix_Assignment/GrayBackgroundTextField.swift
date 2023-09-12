@@ -25,7 +25,7 @@ class GrayBackgroundTextField: UITextField {
     }
     
     func setPlaceholder(_ placeholder: String) {
-        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGray2])
 
     }
 }
