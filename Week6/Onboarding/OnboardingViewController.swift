@@ -92,12 +92,12 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDelega
         return nextIndex >= list.count ? nil : list[nextIndex]
     }
     
-    //5-1. Count 몇 개 준비할까
+    //5-2. Count 몇 개 준비할까
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return list.count
     }
     
-    //5-2. Index 페이지컨트롤 어디보고있는지 구멍 채우는 거 - 버티컬일 때도 안 나오고, 페이지컬일 때도 안 보임
+    //5-3. Index 페이지컨트롤 어디보고있는지 구멍 채우는 거 - 버티컬일 때도 안 나오고, 페이지컬일 때도 안 보임
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         //viewControllers: 페이지컨트롤러에 디스플레이된 뷰컨트롤러를 갖고 오는 것
         guard let first = viewControllers?.first, let index = list.firstIndex(of: first) else { return 0 } //디폴트는 0번 인덱스 채우기

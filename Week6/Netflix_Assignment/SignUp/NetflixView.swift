@@ -1,14 +1,14 @@
 //
-//  NetflixViewController.swift
+//  NetflixView.swift
 //  Week6
 //
-//  Created by 박소진 on 2023/08/24.
+//  Created by 박소진 on 2023/09/12.
 //
 
 import UIKit
 import SnapKit
 
-class NetflixViewController: UIViewController {
+class NetflixView: UIView {
     
     let titleLabel = {
         let view = UILabel()
@@ -73,23 +73,27 @@ class NetflixViewController: UIViewController {
         view.onTintColor = .red
         return view
     }()
-
-    //MARK: - viewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+        setConstraints()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure() {
         
-        setUI()
-
+        backgroundColor = .black
+        
+        let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel]
+        list.forEach {
+            addSubview($0) }
+        
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-}
-
-//MARK: - UI extention
-extension NetflixViewController {
     
     func setConstraints() {
         
@@ -145,16 +149,6 @@ extension NetflixViewController {
             make.leading.equalTo(signUpButton.snp.leading)
         }
         
-    }
-    
-    func setUI() {
-        
-        view.backgroundColor = .black
-        
-        let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel]
-        list.forEach { view.addSubview($0) }
-        
-        setConstraints()
     }
     
 }

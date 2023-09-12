@@ -14,5 +14,6 @@ class GrayBackgroundTextField: UITextField {
         layer.cornerRadius = 7
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         textAlignment = .center
+        textColor = .white
     }
 }
