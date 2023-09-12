@@ -9,11 +9,23 @@ import UIKit
 
 class GrayBackgroundTextField: UITextField {
     
-    func setTextField(_ placeholder: String) {
-        backgroundColor = .gray
-        layer.cornerRadius = 7
-        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
         textAlignment = .center
         textColor = .white
+        backgroundColor = .gray
+        layer.cornerRadius = 7
+        
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setPlaceholder(_ placeholder: String) {
+        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+
     }
 }

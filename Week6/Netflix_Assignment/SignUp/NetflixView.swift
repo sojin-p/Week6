@@ -10,6 +10,17 @@ import SnapKit
 
 class NetflixView: UIView {
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+        setConstraints()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let titleLabel = {
         let view = UILabel()
         view.text = "NETFLIX"
@@ -30,31 +41,34 @@ class NetflixView: UIView {
     
     let emailTextField = {
         let view = GrayBackgroundTextField()
-        view.setTextField("이메일 또는 전화번호")
+        view.setPlaceholder(LoginTextField.email.placeHolder)
+        view.tag = LoginTextField.email.tag
         return view
     }()
     
     let  passwordTextField = {
         let view = GrayBackgroundTextField()
-        view.setTextField("비밀번호")
+        view.setPlaceholder(LoginTextField.password.placeHolder)
+        view.tag = LoginTextField.password.tag
         return view
     }()
     
     let nicknameTextField = {
         let view = GrayBackgroundTextField()
-        view.setTextField("닉네임")
+        view.setPlaceholder(LoginTextField.nickname.placeHolder)
+        view.tag = LoginTextField.nickname.tag
         return view
     }()
     
     let locationTextField = {
         let view = GrayBackgroundTextField()
-        view.setTextField("위치")
+        view.setPlaceholder(LoginTextField.location.placeHolder)
         return view
     }()
     
     let recommendationTextField = {
         let view = GrayBackgroundTextField()
-        view.setTextField("추천 코드 입력")
+        view.setPlaceholder(LoginTextField.recommendation.placeHolder)
         return view
     }()
     
@@ -74,15 +88,56 @@ class NetflixView: UIView {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-        setConstraints()
+    var viewModel = NetfixViewModel()
+    
+    enum LoginTextField {
+        case email
+        case password
+        case nickname
+        case location
+        case recommendation
+        
+        var placeHolder: String {
+            switch self {
+            case .email: return "이메일 또는 전화번호"
+            case .password: return "비밀번호"
+            case .nickname: return "닉네임"
+            case .location: return "위치"
+            case .recommendation: return "추천 코드"
+            }
+        }
+        
+        var tag: Int {
+            switch self {
+            case .email: return 0
+            case .password: return 1
+            case .nickname: return 2
+            case .location: return 3
+            case .recommendation: return 4
+            }
+        }
     }
     
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @objc func textFieldChanged(_ sender: UITextField) {
+        
+        guard let text = sender.text else { return }
+        
+        switch sender.tag {
+        case LoginTextField.email.tag:
+            viewModel.email.value = text
+            print("이메일", text)
+            
+        case LoginTextField.password.tag:
+            viewModel.password.value = text
+            print("비번", text)
+            
+        case LoginTextField.nickname.tag:
+            viewModel.nickname.value = text
+            print("닉네임", text)
+            
+        default: print("디폴트")
+        }
+        
     }
     
     func configure() {
@@ -92,6 +147,8 @@ class NetflixView: UIView {
         let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel]
         list.forEach {
             addSubview($0) }
+        
+        [emailTextField, passwordTextField, nicknameTextField].forEach { $0.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) }
         
     }
     

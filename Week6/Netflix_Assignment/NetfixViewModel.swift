@@ -9,5 +9,8 @@ import Foundation
 
 class NetfixViewModel {
     
+    var email = Observable("")
+    var password = Observable("")
+    var nickname = Observable("")
     
 }

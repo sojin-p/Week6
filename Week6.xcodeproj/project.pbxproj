@@ -36,6 +36,7 @@
 		2356E5062A984B58000DB64F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356E5052A984B58000DB64F /* OnboardingViewController.swift */; };
 		236E6BB92AB077F2008A0973 /* NetfixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BB82AB077F2008A0973 /* NetfixViewModel.swift */; };
 		236E6BBB2AB07812008A0973 /* NetflixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BBA2AB07812008A0973 /* NetflixView.swift */; };
+		236E6BBF2AB07CA7008A0973 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236E6BBE2AB07CA7008A0973 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		2356E5052A984B58000DB64F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		236E6BB82AB077F2008A0973 /* NetfixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetfixViewModel.swift; sourceTree = "<group>"; };
 		236E6BBA2AB07812008A0973 /* NetflixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixView.swift; sourceTree = "<group>"; };
+		236E6BBE2AB07CA7008A0973 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		2356E4F52A9761FC000DB64F /* Netflix_Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				236E6BBE2AB07CA7008A0973 /* Observable.swift */,
 				236E6BB82AB077F2008A0973 /* NetfixViewModel.swift */,
 				236E6BBC2AB0781C008A0973 /* SignUp */,
 				236E6BBD2AB07830008A0973 /* Main */,
@@ -296,6 +299,7 @@
 				2356E4E82A96F0EC000DB64F /* GenericViewController.swift in Sources */,
 				2356E4F42A975F45000DB64F /* NetflixViewController.swift in Sources */,
 				2356E4D72A94792C000DB64F /* LocationViewController.swift in Sources */,
+				236E6BBF2AB07CA7008A0973 /* Observable.swift in Sources */,
 				2356E4EA2A96F117000DB64F /* Extension+UIViewController.swift in Sources */,
 				2356E4FD2A977486000DB64F /* ColorRadiusImageView.swift in Sources */,
 				2356E5032A9840A9000DB64F /* PosterImageView.swift in Sources */,
