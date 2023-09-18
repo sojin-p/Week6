@@ -30,6 +30,15 @@ class NetflixView: UIView {
         return view
     }()
     
+    let resultLabel = {
+        let view = UILabel()
+        view.text = "테스트테스트테스트테스트테스트테스트테스트"
+        view.font = .systemFont(ofSize: 20, weight: .heavy)
+        view.textAlignment = .center
+        view.textColor = .systemYellow
+        return view
+    }()
+    
     let addInfoLabel = {
         let view = UILabel()
         view.text = "추가 정보 입력"
@@ -139,7 +148,7 @@ class NetflixView: UIView {
             }
         }
         
-        let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel]
+        let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel, resultLabel]
         list.forEach {
             addSubview($0) }
         
@@ -200,6 +209,11 @@ class NetflixView: UIView {
         addInfoLabel.snp.makeConstraints { make in
             make.centerY.equalTo(redSwitch)
             make.leading.equalTo(signUpButton.snp.leading)
+        }
+        
+        resultLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(emailTextField.snp.top).offset(-25)
+            make.horizontalEdges.equalToSuperview().inset(30)
         }
         
     }
