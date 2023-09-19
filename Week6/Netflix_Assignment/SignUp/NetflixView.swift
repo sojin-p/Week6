@@ -33,7 +33,8 @@ class NetflixView: UIView {
     let resultLabel = {
         let view = UILabel()
         view.text = "테스트테스트테스트테스트테스트테스트테스트"
-        view.font = .systemFont(ofSize: 20, weight: .heavy)
+        view.numberOfLines = 2
+        view.font = .systemFont(ofSize: 15, weight: .heavy)
         view.textAlignment = .center
         view.textColor = .systemYellow
         return view
@@ -72,12 +73,14 @@ class NetflixView: UIView {
     let locationTextField = {
         let view = GrayBackgroundTextField()
         view.setPlaceholder(LoginTextField.location.placeHolder)
+        view.tag = LoginTextField.location.tag
         return view
     }()
     
     let recommendationTextField = {
         let view = GrayBackgroundTextField()
         view.setPlaceholder(LoginTextField.recommendation.placeHolder)
+        view.tag = LoginTextField.recommendation.tag
         return view
     }()
     
@@ -100,6 +103,7 @@ class NetflixView: UIView {
 
     @objc func signUpButtonClicked() {
         print("로그인버튼 클릭")
+        
         viewModel.signIn {
             
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -120,18 +124,27 @@ class NetflixView: UIView {
         switch sender.tag {
         case LoginTextField.email.tag:
             viewModel.email.value = text
+            viewModel.checkValidation(text: text, regex: ValidationError.invalidEmail.regex, index: 0, error: ValidationError.invalidEmail, emptyError: ValidationError.emptyString.errorMessage, messge: ValidationError.invalidEmail.errorMessage)
             
         case LoginTextField.password.tag:
             viewModel.password.value = text
+            viewModel.checkValidation(text: text, regex: ValidationError.invalidPassword.regex, index: 1, error: ValidationError.invalidPassword, emptyError: ValidationError.emptyString.errorMessage, messge: ValidationError.invalidPassword.errorMessage)
             
         case LoginTextField.nickname.tag:
             viewModel.nickname.value = text
+            viewModel.checkValidation(text: text, regex: ValidationError.invalidNickname.regex, index: 2, error: ValidationError.invalidNickname, emptyError: ValidationError.emptyString.errorMessage, messge: ValidationError.invalidNickname.errorMessage)
             
-        default: print("디폴트")
+        case LoginTextField.location.tag:
+            viewModel.location.value = text
+            viewModel.checkValidation(text: text, regex: ValidationError.invalidlocation.regex, index: 3, error: ValidationError.invalidlocation, emptyError: ValidationError.emptyString.errorMessage, messge: ValidationError.invalidlocation.errorMessage)
+            
+        case LoginTextField.recommendation.tag:
+            viewModel.recommendation.value = text
+            viewModel.checkValidation(text: text, regex: ValidationError.invalidCode.regex, index: 4, error: ValidationError.invalidCode, emptyError: ValidationError.emptyString.errorMessage, messge: ValidationError.invalidCode.errorMessage)
+        default: break
         }
         
-        viewModel.checkValidation()
-        
+        viewModel.checkEverything()
     }
     
     func configure() {
@@ -147,12 +160,36 @@ class NetflixView: UIView {
                 self.signUpButton.setTitleColor(.darkGray, for: .normal)
             }
         }
+
+        viewModel.email.bind { text in
+            self.emailTextField.text = text
+        }
+        
+        viewModel.password.bind { text in
+            self.passwordTextField.text = text
+        }
+        
+        viewModel.nickname.bind { text in
+            self.nicknameTextField.text = text
+        }
+        
+        viewModel.location.bind { text in
+            self.locationTextField.text = text
+        }
+        
+        viewModel.recommendation.bind { text in
+            self.recommendationTextField.text = text
+        }
+        
+        viewModel.result.bind { value in
+            self.resultLabel.text = value
+        }
         
         let list = [titleLabel, emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField, signUpButton, redSwitch, addInfoLabel, resultLabel]
         list.forEach {
             addSubview($0) }
         
-        [emailTextField, passwordTextField, nicknameTextField].forEach { $0.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) }
+        [emailTextField, passwordTextField, nicknameTextField, locationTextField, recommendationTextField].forEach { $0.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) }
         
         signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
     }
